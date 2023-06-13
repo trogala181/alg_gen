@@ -36,15 +36,16 @@ void Tcandidate::mutating()
 	for (int i = 0; i < ile_mutacji; i++)
 	{
 		int wybor_gen = rand() % GENS_COUNT; // losowanie który gen zostanie zmutowany tym razem
+		int size_of_mutation = rand() % this->genotype[wybor_gen].get_step_ratio()/10;
 		double los = rand() % 100 + 1; // losowanie wartoœci czy wprzód czy do ty³u
 		
 		if (los > 50)
 		{
-			genotype[wybor_gen].set_val(genotype[wybor_gen].get_val() + genotype[wybor_gen].get_step());
+			genotype[wybor_gen].set_val(genotype[wybor_gen].get_val() + size_of_mutation);
 		}
 		else
 		{
-			genotype[wybor_gen].set_val(genotype[wybor_gen].get_val() - genotype[wybor_gen].get_step());
+			genotype[wybor_gen].set_val(genotype[wybor_gen].get_val() - size_of_mutation);
 		}
 
 	}

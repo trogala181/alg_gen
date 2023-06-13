@@ -26,7 +26,7 @@ int main()
 
 	pop1.get_best_candidate().info();*/
 
-	TAlg alg1(5);
+	TAlg alg1(20);
 
 	/*Tparam param1(0, 10, 0.5);
 	Tparam param2(10, 20, 0.25,15);
@@ -53,6 +53,7 @@ int main()
 	osobnik3.info();
 	osobnik3.crossing(osobnik1, osobnik2);
 	osobnik3.info();*/
+
 	
 	return 0;
 }

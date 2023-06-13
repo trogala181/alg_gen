@@ -16,6 +16,7 @@ public:
 	TPop(int pop_count);
 	void calculate();
 	Tcandidate get_best_candidate();
+	int get_random_waged_cand_id();
 	void info();
 	std::vector <Tcandidate> pops;
 	

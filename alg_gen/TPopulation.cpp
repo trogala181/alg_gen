@@ -19,6 +19,27 @@ TPop::TPop(int pop_count)
 
 	}
 }
+int TPop::get_random_waged_cand_id()
+{
+	int size = this->pops.size();
+	double suma = 0;
+	double suma_temp = 0;
+	for (int i = 0; i < size; i++)
+	{
+		suma += pops[i].get_mark();
+	}
+	double los = (double)rand() * suma;
+	
+	for (int i = 0; i < size; i++)
+	{
+		suma_temp += pops[i].get_mark();
+		if (los <= suma_temp)
+		{
+			return i;
+		}
+	}
+	return 0;
+}
 Tcandidate TPop::get_best_candidate()
 {
 	int size = this->pops.size();

@@ -8,6 +8,6 @@ class TAlg
 	TPop* wsk_pop_next;
 	double best_ogcand_val;
 public:
-	TAlg(int pop_count, int max_generation_count = 20, int progress_cap = 10);
+	TAlg(int pop_count, int max_generation_count = 50, int progress_cap = 10);
 
 };
