@@ -13,31 +13,42 @@ Tcandidate::Tcandidate()
 }
 void Tcandidate::crossing(Tcandidate cand1, Tcandidate cand2)
 {
-	double los = rand() % 100 + 1;
-	
-	if (los > 50)
+	for (int i = 0; i < GENS_COUNT; i++)  // przejscie po kazdym genie rodzicow
 	{
-		this->genotype[0] = cand1.genotype[0];
-		this->genotype[1] = cand2.genotype[1];
-	}
-	else
-	{
-		this->genotype[0] = cand2.genotype[0];
-		this->genotype[1] = cand1.genotype[1];
+		double los = rand() % 100 + 1; // los którego rodzica przejdzie do potomka
+		
+		if (los > 50)
+		{
+			this->genotype[i] = cand1.genotype[i];
+		}
+		else
+		{
+			this->genotype[i] = cand2.genotype[i];
+		}
 	}
 	
 }
 void Tcandidate::mutating()
 {
-	double los = rand() % 100 + 1;
-	if (los > 50)
+	
+	int ile_mutacji = rand() % GENS_COUNT; // losowanie liczby ile razy ma zajœæ mutacja
+	
+	for (int i = 0; i < ile_mutacji; i++)
 	{
-		genotype[0].set_val(genotype[0].get_val() + genotype[0].get_step());
+		int wybor_gen = rand() % GENS_COUNT; // losowanie który gen zostanie zmutowany tym razem
+		double los = rand() % 100 + 1; // losowanie wartoœci czy wprzód czy do ty³u
+		
+		if (los > 50)
+		{
+			genotype[wybor_gen].set_val(genotype[wybor_gen].get_val() + genotype[wybor_gen].get_step());
+		}
+		else
+		{
+			genotype[wybor_gen].set_val(genotype[wybor_gen].get_val() - genotype[wybor_gen].get_step());
+		}
+
 	}
-	else
-	{
-		genotype[0].set_val(genotype[0].get_val() - genotype[0].get_step());
-	}
+	
 }
 Tcandidate::Tcandidate(const Tcandidate &kopia)
 {

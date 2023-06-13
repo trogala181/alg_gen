@@ -53,5 +53,6 @@ int main()
 	osobnik3.info();
 	osobnik3.crossing(osobnik1, osobnik2);
 	osobnik3.info();*/
+	
 	return 0;
 }
