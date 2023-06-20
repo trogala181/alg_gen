@@ -26,12 +26,14 @@ public:
 	std::string get_des() { return opis; }
 
 	void set_range(double min, double max, double step);
-
 	void set_val(double val) { this->id = get_val_id(val); }
+	void set_rand_val();
+
 	double get_step() { return this->step; }
 	double get_val() const { return min + id * step; }
+	
 	int get_step_ratio() { return ((this->max - this->min) / this->step);  }
-	void set_rand_val();
+	
 	
 	void info();
 private:
